@@ -33,6 +33,8 @@
     <springframework.version>5.0.0.RELEASE</springframework.version>
     <!--JSON与POJO互转：@RequestBody、@ResponseBody-->
     <jackson.version>2.9.0</jackson.version>
+    <!--表单验证-->
+    <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
 
     <!--MyBatis相关包-->
     <mybatis.version>3.4.5</mybatis.version>
@@ -177,6 +179,12 @@
       <artifactId>jackson-annotations</artifactId>
       <version>${jackson.version}</version>
     </dependency>
+    <!-- 表单验证的jar -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate-validator.version}</version>
+    </dependency>
 
     <!--MyBatis框架-->
     <dependency>
@@ -184,7 +192,7 @@
       <artifactId>mybatis</artifactId>
       <version>${mybatis.version}</version>
     </dependency>
-    <!--mybatis-spring:将 MyBatis 代码无缝地整合到 Spring 中-->
+    <!--mybatis-mvc:将 MyBatis 代码无缝地整合到 Spring 中-->
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-spring</artifactId>

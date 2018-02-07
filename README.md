@@ -17,7 +17,7 @@ SSM整合03:初步整合Spring + Spring MVC(一)
     2.5.配置视图解析器
 3.Spring配置文件：applicationContext.xml（部分配置转移到了spring-mvc-servlet.xml）
 4.测试
-    编写SpringMVCDemoController
-    编写mvc.jsp
-    测试成功
+    4.1.编写SpringMVCDemoController
+    4.2.编写mvc.jsp
+    4.3.测试成功
 
