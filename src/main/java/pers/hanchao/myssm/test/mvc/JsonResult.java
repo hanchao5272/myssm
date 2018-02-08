@@ -11,6 +11,13 @@ public class JsonResult<E> {
     /** 响应内容 */
     private List<E> list;
 
+    /**
+     * <p>添加一个对象</p>
+     * @author hanchao 2018/2/8 23:27
+     **/
+    public void addList(E object) {
+        this.list.add(object);
+    }
     @Override
     public String toString() {
         return "JsonResult{" +

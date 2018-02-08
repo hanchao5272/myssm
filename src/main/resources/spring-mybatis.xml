@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--通过spring标签加载属性文件-->
+    <context:property-placeholder file-encoding="UTF-8" location="classpath:jdbc.properties,classpath:mbg.properties"/>
+    
+    <!--MyBatis配置-->
+    <!--配置数据源：DataSource(有没有更好的DataSource??)-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--配置会话工厂bean：SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--配置MyBatis配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--配置类型别名，类似于MyBatis配置文件的typeAliases。因为使用的是全名，所以不需要配置-->
+        <!--<property name="typeAliasesPackage" value="pers.hanchao.myssm.**.entity"/>-->
+        <!--配置数据源，类似于MyBatis配置文件的environment中的DataSource标签-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--配置映射文件地址，于MyBatis配置文件的mapper-->
+        <property name="mapperLocations" value="classpath:mybatis-mapper/*.xml"/>
+    </bean>
+    <!--配置映射扫描配置：MapperScannerConfigurer-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--配置SqlSessionFactory-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--配置Dao层目录所在-->
+        <property name="basePackage" value="pers.hanchao.myssm.**.dao"/>
+    </bean>
+    <!--配置Spring的事务控制bean-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--配置数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--开启基于注解的声明式事务-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>
