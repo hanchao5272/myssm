@@ -53,4 +53,14 @@
             <bean class="pers.hanchao.myssm.test.interceptor.MethodTimeInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!--上传文件配置-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--单次上传文件大小限制 : 10 MB-->
+        <property name="maxUploadSize" value="10485760"/>
+        <!--单个上传文件大小限制 ： 1 MB-->
+        <property name="maxUploadSizePerFile" value="1048576"/>
+        <!--编码格式utf-8-->
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 </beans>
