@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: hanchao
@@ -18,7 +19,7 @@
     <input type="submit" value="上传"/>
 </form>
 <div>
-    <h3>code:${code},message:${message}</h3>
+    <h3>${result.message}</h3>
 </div>
 </body>
 </html>

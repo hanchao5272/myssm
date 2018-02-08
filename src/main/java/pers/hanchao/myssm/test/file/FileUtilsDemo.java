@@ -32,10 +32,16 @@ public class FileUtilsDemo {
         //获取上传根目录
         String uploadRootPath = request.getServletContext().getRealPath("upload");
         LOGGER.info("当前上传文件根路径：" + uploadRootPath);
-        File rootFile = new File(uploadRootPath);
+        File rootDir = new File(uploadRootPath);
         //判断目录是否存在，不存在层级目录
-        if (!rootFile.exists()){
-            rootFile.mkdirs();
+        if (!rootDir.exists()){
+            LOGGER.info("当前上传文件根路径不存在，进行创建...");
+            boolean create = rootDir.mkdirs();
+            if (create){
+                LOGGER.info("当前上传文件根路径不存在，...创建成功。");
+            }else {
+                LOGGER.info("当前上传文件根路径不存在，...创建失败！");
+            }
         }
         //设置返回值，默认为成功
         JsonResult jsonResult = new JsonResult();
@@ -43,12 +49,9 @@ public class FileUtilsDemo {
         try {
             for (MultipartFile file : multiFiles){
                 //如果文件不为空，则可以上传
-                if (null != file){
-                    File serverFile = new File(rootFile.getAbsolutePath() + File.separator + file.getOriginalFilename());
+                if (!file.isEmpty()){
+                    File serverFile = new File(rootDir.getAbsolutePath() + File.separator + file.getOriginalFilename());
                     LOGGER.info("当前上传文件路径：" + serverFile.getAbsolutePath());
-                    if (serverFile.exists()){
-                        serverFile.delete();
-                    }
                     file.transferTo(serverFile);
                 }
             }
@@ -60,6 +63,7 @@ public class FileUtilsDemo {
             jsonResult.setMessage("文件上传失败！");
         }
         model.addAttribute("result",jsonResult);
+        LOGGER.info(jsonResult);
         return "test/file";
     }
 }
