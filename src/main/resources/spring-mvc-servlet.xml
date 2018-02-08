@@ -17,7 +17,7 @@
     <!--开启自动扫描装配-->
     <context:component-scan base-package="pers.hanchao.myssm.*"/>
 
-    <!--校验-->
+    <!--表单校验-->
     <!--注册校验驱动-->
     <mvc:annotation-driven validator="validator"/>
     <!--校验工厂-->
@@ -44,4 +44,13 @@
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    
+    <!--拦截器-->
+    <mvc:interceptors>
+        <!--拦截器示例：计算方法执行时间-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="pers.hanchao.myssm.test.interceptor.MethodTimeInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
