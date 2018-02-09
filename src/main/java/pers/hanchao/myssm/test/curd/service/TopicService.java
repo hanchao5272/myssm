@@ -1,11 +1,14 @@
 package pers.hanchao.myssm.test.curd.service;
 
+import com.github.pagehelper.PageHelper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pers.hanchao.myssm.test.curd.dao.TopicDao;
 import pers.hanchao.myssm.test.curd.entity.TopicEntity;
+
+import java.util.List;
 
 /**
  * <p>增删改查简单测试+事务</p>
@@ -26,6 +29,15 @@ public class TopicService {
         //查询所有
         LOGGER.info("查询所有");
         LOGGER.info(this.topicDao.selectAll());
+        //查询所有(分页)
+        System.out.println();
+        PageHelper.startPage(0,10);
+        LOGGER.info("查询所有（分页）");
+        //将Page类型转换成List
+        List<TopicEntity> topicEntityList = topicDao.selectAll();
+        LOGGER.info(topicEntityList);
+        //通过lambda表达式输出集合信息
+        topicEntityList.forEach(LOGGER::info);
         //插入一个，查询所有
         System.out.println();
         LOGGER.info("插入一个");

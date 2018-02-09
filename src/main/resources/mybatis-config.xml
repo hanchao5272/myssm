@@ -7,4 +7,13 @@
         <!--指定日志实现方式是log4j-->
         <setting name="logImpl" value="LOG4J"/>
     </settings>
+    <plugins>
+        <!--分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--当pageSize=0时，是否查询全部记录-->
+            <property name="pageSizeZero" value="true"/>
+            <!--分页合理化参数，当page<=0时，显示第一页；当pageNum>=maxPage时，显示最后一页-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
 </configuration>
