@@ -3,5 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!--MyBatis的总配置文件-->
 <configuration>
-
+    <settings>
+        <!--指定日志实现方式是log4j-->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
 </configuration>
