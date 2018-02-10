@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--通过spring标签加载属性文件-->
-    <context:property-placeholder file-encoding="UTF-8" location="classpath:jdbc.properties,classpath:mbg.properties"/>
+    <context:property-placeholder file-encoding="UTF-8" location="classpath:jdbc.properties"/>
     
     <!--MyBatis配置-->
     <!--配置数据源：DataSource(有没有更好的DataSource??)-->

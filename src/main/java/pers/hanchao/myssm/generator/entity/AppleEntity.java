@@ -1,4 +1,4 @@
-package pers.hanchao.myssm.test.generator.entity;
+package pers.hanchao.myssm.generator.entity;
 
 public class AppleEntity {
     /**

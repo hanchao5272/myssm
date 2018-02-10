@@ -1,7 +1,7 @@
-package pers.hanchao.myssm.test.generator.dao;
+package pers.hanchao.myssm.generator.dao;
 
 import java.util.List;
-import pers.hanchao.myssm.test.generator.entity.AppleEntity;
+import pers.hanchao.myssm.generator.entity.AppleEntity;
 
 public interface AppleDao {
     /**

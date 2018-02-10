@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="pers.hanchao.myssm.test.generator.dao.AppleDao">
-  <resultMap id="BaseResultMap" type="pers.hanchao.myssm.test.generator.entity.AppleEntity">
+<mapper namespace="pers.hanchao.myssm.generator.dao.AppleDao">
+  <resultMap id="BaseResultMap" type="pers.hanchao.myssm.generator.entity.AppleEntity">
     <!--
     @mbggenerated
     -->
@@ -16,7 +16,7 @@
     delete from apple
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="pers.hanchao.myssm.test.generator.entity.AppleEntity">
+  <insert id="insert" parameterType="pers.hanchao.myssm.generator.entity.AppleEntity">
     <!--
     @mbggenerated
     -->
@@ -28,7 +28,7 @@
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="pers.hanchao.myssm.test.generator.entity.AppleEntity">
+  <update id="updateByPrimaryKey" parameterType="pers.hanchao.myssm.generator.entity.AppleEntity">
     <!--
     @mbggenerated
     -->
