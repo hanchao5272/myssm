@@ -12,12 +12,12 @@ import javax.validation.constraints.NotNull;
 public class User {
     /** 用户名 */
     @NotNull
-    @Length(min = 4,max = 20,message = "{Length.User.username}")
+    @Length(min = 5,max = 10, message = "{user.username.length}")
     private String username;
 
     /** 密码 */
     @NotNull
-    @Length(min = 6,max = 20,message = "{Length.User.password}")
+    @Length(min = 5,max = 10, message= "{user.password.length}")
     private String password;
 
     @Override

@@ -17,23 +17,6 @@
     <!--开启自动扫描装配-->
     <context:component-scan base-package="pers.hanchao.myssm.*"/>
 
-    <!--表单校验-->
-    <!--注册校验驱动-->
-    <mvc:annotation-driven validator="validator"/>
-    <!--校验工厂-->
-    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
-        <property name="validationMessageSource" ref="messageSource"/>
-    </bean>
-    <!--校验消息源-->
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <!--指向message.properties文件-->
-        <property name="basename" value="message"/>
-        <property name="defaultEncoding" value="utf-8"/>
-        <property name="useCodeAsDefaultMessage" value="false"/>
-        <property name="cacheSeconds" value="60"/>
-    </bean>
-
     <!--静态资源配置:js/css等等，缓存1年(即 : 31536000秒)-->
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
 
