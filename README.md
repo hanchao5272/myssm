@@ -6,9 +6,10 @@
 本文主要对SSM框架整合的过程进行记录，作为之后参考的依据。
 
 ### 1.1.参考文章
-[Spring代码实例系列-绪论](http://blog.csdn.net/hanchao5272/article/details/78994070)
-[Spring MVC代码实例系列-绪论](http://blog.csdn.net/hanchao5272/article/details/79052074)
-[MyBatis代码实例系列-绪论](http://blog.csdn.net/hanchao5272/article/details/79184189)
+
+- [Spring代码实例系列-绪论](http://blog.csdn.net/hanchao5272/article/details/78994070)
+- [Spring MVC代码实例系列-绪论](http://blog.csdn.net/hanchao5272/article/details/79052074)
+- [MyBatis代码实例系列-绪论](http://blog.csdn.net/hanchao5272/article/details/79184189)
 
 ### 1.2.技术简介
 在整合的SSM框架中，主要涉及的框架、插件或技术有：
